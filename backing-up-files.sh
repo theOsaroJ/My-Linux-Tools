@@ -7,7 +7,7 @@ BACK_UP() {
   then
   #Backing up to var/tmp/ for a 30 day window, %F to get full date
     local BACKUP_FILE="/var/tmp/$(basename ${FILE}).$(date +%F-%N)"
-    log "Backing Up ${FILE} to ${BACKUP_FILE}."
+    echo "Backing Up ${FILE} to ${BACKUP_FILE}."
 
   #copying the exit status of the Function
     cp -p ${FILE} ${BACKUP_FILE}
