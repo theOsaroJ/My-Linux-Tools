@@ -1,11 +1,5 @@
 #!/bin/bash
 
-#Removing the holding txts
-
-rm sampleAd.txt
-rm samplePr.txt
-#rm data.csv
-
 #Calling a pattern with grep into holders file
 
 grep -F 'Average loading absolute [mol/kg framework]' *.data  > sampleAd.txt
@@ -19,8 +13,8 @@ grep 'External Pressure' *.data > samplePr.txt
 
 #Creating individual files by using awk
 awk -F' ' '{print $3}' samplePr.txt > press
-awk -F' ' '{print $7}' sampleAd.txt > up1
+awk -F' ' '{print $7}' sampleAd.txt > upt
 awk -F' ' '{ print $9 }' sampleAd.txt > err
 
 echo -e "Pressure,Uptake,Error" > finaldata.csv
-paste press up1 err -d"," >> finaldata.csv
+paste press upt err -d"," >> finaldata.csv
