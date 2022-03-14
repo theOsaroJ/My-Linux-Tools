@@ -18,3 +18,26 @@ awk -F' ' '{ print $9 }' sampleAd.txt > err
 
 echo -e "Pressure,Uptake,Error" > finaldata.csv
 paste press upt err -d"," >> finaldata.csv
+
+
+
+#FOR THE N2 IN CU_BTC
+#!/bin/bash
+
+#Collecting Average loading and pressure data into sample files.
+
+grep -F 'Average loading absolute [milligram/gram framework]' *.data > sampleAd.txt
+grep -F 'Partial pressure' *.data> samplePr.txt
+
+
+#Awking the pipe to get values
+awk -F' ' '{print $4}' samplePr.txt > Pres
+awk -F' ' '{print $7}' sampleAd.txt > upt
+awk -F' ' '{print $9}' sampleAd.txt > err
+
+
+#Pasting to a new csv file
+echo -e "Pressure,Uptake,Error" > N2_CuBTCFinaldata.csv
+paste Pres upt err -d"," >>N2_CuBTCFinaldata.csv
+
+sort -n N2_CuBTCFinaldata.csv > N2_CuBTCSortData.csv
