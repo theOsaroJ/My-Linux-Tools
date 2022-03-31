@@ -1,0 +1,19 @@
+#Substitute content using sed
+sed -i 's/a/'b'/' text.txt  #Substituting a with b in text.txt file where text.txt contains just a
+
+#Creating an array of numbers as row  (This creates an array of 1 to 49 with a comma after the 49) into two files
+for ((i=1;i<=49;i++))
+do
+echo -n "${1}" >> rel_true.csv
+echo -n "${1}" >> rel.csv
+done
+
+##To add number 50 without the comma
+for ((i=50;i<=50;i++))
+do
+echo -n "${1}" >> rel_true.csv
+echo -n "${1}" >> rel.csv
+done
+
+#To remove square brackets using sed from the content where test.txt contains [dd]
+sed 's/[][]//g' text.txt
