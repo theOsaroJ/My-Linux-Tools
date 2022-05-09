@@ -1,6 +1,5 @@
 #!/bin/bash
-
-rm sampleAd.txt samplePr.txt Pres upt err N2_ZIF8Finaldata.csv
+##Ignore the N2!
 
 grep -F 'Average loading absolute [cm^3 (STP)/gr framework]' *.data > sampleAd.txt
 grep -F 'Partial pressure' *.data> samplePr.txt
@@ -13,7 +12,7 @@ awk -F' ' '{print $10}' sampleAd.txt > err
 
 
 #Pasting to a new csv file
-echo -e "Pressure,Uptake,Error" > N2_ZIF8Finaldata.csv
-paste Pres upt err -d"," >>N2_ZIF8Finaldata.csv
+echo -e "Pressure,Uptake,Error" > Finaldata.csv
+paste Pres upt err -d"," >> Finaldata.csv
 
-sort -n N2_ZIF8Finaldata.csv > CompleteData.csv
+sort -n N2_Finaldata.csv > CompleteData.csv
