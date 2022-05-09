@@ -15,4 +15,4 @@ awk -F' ' '{print $10}' sampleAd.txt > err
 echo -e "Pressure,Uptake,Error" > Finaldata.csv
 paste Pres upt err -d"," >> Finaldata.csv
 
-sort -n N2_Finaldata.csv > CompleteData.csv
+sort -n Finaldata.csv > CompleteData.csv
