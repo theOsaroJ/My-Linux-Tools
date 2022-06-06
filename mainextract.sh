@@ -1,5 +1,4 @@
 #!/bin/bash
-##Ignore the N2!
 
 grep -F 'Average loading absolute [cm^3 (STP)/gr framework]' *.data > sampleAd.txt
 grep -F 'Partial pressure' *.data> samplePr.txt
